@@ -1,9 +1,26 @@
+import { Flower } from 'core/Flowers/domain/Flower'
 import './Home.css'
+import { FC } from 'react'
+import { FlowerCard } from './_components/FlowerCard/FlowerCard'
 
-export const Home = () => {
+interface Props {
+  flowers: Flower[]
+}
+
+export const Home: FC<Props> = ({ flowers }) => {
   return (
     <div className="home">
-      <h1>Dulces pétalos</h1>
+      {flowers.map((flower: Flower) => {
+        return (
+          <FlowerCard
+            key={flower.id}
+            binomialName={flower.binomialName}
+            image={flower.imgUrl}
+            name={flower.name}
+            price={flower.price}
+          />
+        )
+      })}
     </div>
   )
 }

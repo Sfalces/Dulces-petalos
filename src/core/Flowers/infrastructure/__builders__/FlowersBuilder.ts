@@ -5,7 +5,7 @@ export const aFlower = (...options: Partial<Flower>[]): Flower => {
     id: '1',
     name: 'Rosa',
     price: 10,
-    binominalName: 'RosusLupus',
+    binomialName: 'RosusLupus',
     fertilizerType: 'yes',
     heightInCm: 1,
     wateringsPerWeek: 1,
