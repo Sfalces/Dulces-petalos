@@ -1,7 +1,7 @@
 export interface FlowerDetails {
   id: string
   name: string
-  binominalName: string
+  binomialName: string
   price: number
   imgUrl: string
   wateringsPerWeek: number

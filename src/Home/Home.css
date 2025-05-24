@@ -1,6 +1,10 @@
 .home {
   width: auto;
   height: auto;
-  background-color: #f9f9f9;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1200px;
+  gap: 30px;
+  padding: 30px;
+  margin: 0 auto;
 }
