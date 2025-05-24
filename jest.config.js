@@ -8,5 +8,11 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   transform: {
     ...tsJestTransformCfg
+  },
+  moduleNameMapper: {
+    '^@(.*)/(.*)$': '<rootDir>/node_modules/@$1/$2',
+    '^core/(.*)$': '<rootDir>/src/core/$1',
+    '^ui/(.*)$': '<rootDir>/src/ui/$1',
+    '^_di/(.*)$': '<rootDir>/src/_di/$1'
   }
 }

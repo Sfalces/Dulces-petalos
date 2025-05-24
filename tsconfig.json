@@ -11,7 +11,14 @@
     "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "paths": {
+      "core/*": ["src/core/*"],
+      "ui/*": ["src/ui/*"],
+      "assets/*": ["assets/*"],
+      "_di/*": ["src/_di/*"]
+    }
   },
   "include": ["src"]
 }
