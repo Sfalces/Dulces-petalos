@@ -13,6 +13,7 @@ module.exports = {
     '^@(.*)/(.*)$': '<rootDir>/node_modules/@$1/$2',
     '^core/(.*)$': '<rootDir>/src/core/$1',
     '^ui/(.*)$': '<rootDir>/src/ui/$1',
-    '^_di/(.*)$': '<rootDir>/src/_di/$1'
+    '^_di/(.*)$': '<rootDir>/src/_di/$1',
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
   }
 }
