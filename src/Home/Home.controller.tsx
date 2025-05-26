@@ -6,6 +6,9 @@ import { Flower } from 'core/Flowers/domain/Flower'
 export const HomeController = () => {
   const getFlowers = useInject('getFlowers')
   const [flowers, setFlowers] = useState<Flower[]>([])
+  const [flowerFilter, setflowerFilter] = useState('')
+
+  const filteredFlowers = flowers.filter(flower => flower.name.toLowerCase().includes(flowerFilter.toLowerCase()))
 
   useEffect(() => {
     const fetchFlowers = async () => {
@@ -15,5 +18,5 @@ export const HomeController = () => {
     fetchFlowers()
   }, [])
 
-  return <Home flowers={flowers} />
+  return <Home filteredFlowers={filteredFlowers} flowerFilter={flowerFilter} setflowerFilter={setflowerFilter} />
 }

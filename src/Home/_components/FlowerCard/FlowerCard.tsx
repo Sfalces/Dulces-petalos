@@ -12,7 +12,7 @@ interface Props {
 
 export const FlowerCard: FC<Props> = ({ name, binomialName, image, price }) => {
   return (
-    <div className="card-container">
+    <div className="flower-card">
       <p className="name">{name}</p>
       <p className="binomialName">{binomialName}</p>
       <div className="image-wrapper">
