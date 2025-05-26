@@ -19,9 +19,6 @@ describe('apiFlowerRepository', () => {
         name: 'Rosa',
         price: 10,
         binomialName: 'RosusLupus',
-        fertilizerType: 'yes',
-        heightInCm: 1,
-        wateringsPerWeek: 1,
         imgUrl: 'image'
       },
       {
@@ -29,9 +26,6 @@ describe('apiFlowerRepository', () => {
         name: 'Lirio',
         price: 12,
         binomialName: 'LirioLupus',
-        fertilizerType: 'yes',
-        heightInCm: 1,
-        wateringsPerWeek: 1,
         imgUrl: 'image'
       }
     ]
@@ -47,12 +41,10 @@ describe('apiFlowerRepository', () => {
   }),
     it('should get the flower details', async () => {
       const fakeFlowerDetails: FlowerDetails = {
-        id: '1',
         name: 'Rosa',
         price: 10,
         binomialName: 'RosusLupus',
         fertilizerType: 'yes',
-        heightInCm: 1,
         wateringsPerWeek: 1,
         imgUrl: 'image'
       }
