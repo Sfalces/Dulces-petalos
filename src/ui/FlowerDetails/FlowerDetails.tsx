@@ -9,9 +9,19 @@ interface Prosps {
   price: number
   wateringsPerWeek: number
   fertilizerType: string
+  binomialName: string
+  isSmallScreen: boolean
 }
 
-export const FlowerDetails: FC<Prosps> = ({ name, fertilizerType, price, wateringsPerWeek, image }) => {
+export const FlowerDetails: FC<Prosps> = ({
+  name,
+  fertilizerType,
+  price,
+  wateringsPerWeek,
+  image,
+  binomialName,
+  isSmallScreen
+}) => {
   return (
     <div className="flower-details-page">
       <div className="location">
@@ -25,6 +35,7 @@ export const FlowerDetails: FC<Prosps> = ({ name, fertilizerType, price, waterin
         <img className="flower-image" src={image} alt={name} />
         <div className="flower-details">
           <h1>{name}</h1>
+          {isSmallScreen && <p className="binomialNameQuery">{binomialName}</p>}
           <h3>€{price}</h3>
           <ul>
             <li>Regar {wateringsPerWeek} vez por semana</li>

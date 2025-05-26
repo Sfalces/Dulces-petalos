@@ -57,6 +57,12 @@ li::before {
   cursor: pointer;
 }
 
+.binomialNameQuery {
+  color: #606060;
+  font-size: 16px;
+  line-height: 24px;
+}
+
 @media (max-width: 768px) {
   .flower-details-container {
     display: flex;
