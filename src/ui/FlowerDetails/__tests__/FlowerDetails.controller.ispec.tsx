@@ -6,7 +6,7 @@ import { FlowerDetails } from '..'
 import { render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
-import { Home } from '../../Home'
+import { Home } from 'ui/Home'
 
 describe('FlowerDetails', () => {
   let mockedGetFlowerDetails: MockProxy<FlowerRepository>
@@ -37,11 +37,13 @@ describe('FlowerDetails', () => {
       </MemoryRouter>
     )
 
+    await waitFor(() => expect(screen.getAllByText('Rosa')).toBeDefined())
+
     const inicio = screen.getByText('Inicio')
     await userEvent.click(inicio)
 
     await waitFor(() => {
-      expect(screen.getByPlaceholderText('Busca en nuestra tienda')).toBeDefined()
+      expect(screen.getAllByPlaceholderText('Busca en nuestra tienda')).toBeDefined()
     })
   })
 })

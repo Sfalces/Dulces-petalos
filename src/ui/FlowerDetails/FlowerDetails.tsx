@@ -4,11 +4,11 @@ import { BuyButton } from './_components/BuyButton'
 import { Link } from 'react-router-dom'
 
 interface Prosps {
-  name: string | undefined
-  image: string | undefined
-  price: number | undefined
-  wateringsPerWeek: number | undefined
-  fertilizerType: string | undefined
+  name: string
+  image: string
+  price: number
+  wateringsPerWeek: number
+  fertilizerType: string
 }
 
 export const FlowerDetails: FC<Prosps> = ({ name, fertilizerType, price, wateringsPerWeek, image }) => {
