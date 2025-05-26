@@ -8,7 +8,7 @@ import { HomeController } from '../Home.controller'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
-import { FlowerDetails } from '../../FlowerDetails/FlowerDetails'
+import { FlowerDetails } from '../../FlowerDetails'
 
 describe('Home component', () => {
   let mockedGetFlowers: MockProxy<FlowerRepository>
@@ -16,7 +16,7 @@ describe('Home component', () => {
   beforeEach(() => {
     mockedGetFlowers = mockAsFunction('flowerRepository')
 
-    mockedGetFlowers.getFlowers.mockResolvedValue([aFlower(), aFlower({ name: 'Margarita' })])
+    mockedGetFlowers.getFlowers.mockResolvedValue([aFlower(), aFlower({ name: 'Margarita', id: '2' })])
   })
 
   it('should shows a flower card', async () => {
@@ -53,10 +53,8 @@ describe('Home component', () => {
   it('should navigate to flower detail', async () => {
     render(
       <MemoryRouter>
-        <Routes>
-          <Route path="/" element={<HomeController />} />
-          <Route path="flowerDetails" element={<FlowerDetails />} />
-        </Routes>
+        <HomeController />
+        <FlowerDetails />
       </MemoryRouter>
     )
 
@@ -66,7 +64,7 @@ describe('Home component', () => {
     await userEvent.click(card)
 
     await waitFor(() => {
-      expect(screen.getByText('Flower Details')).toBeDefined()
+      expect(screen.getAllByText('Rosa')).toBeDefined()
     })
   })
 })

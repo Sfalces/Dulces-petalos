@@ -17,7 +17,7 @@ export const Home: FC<Props> = ({ filteredFlowers, flowerFilter, setflowerFilter
         <input
           data-testid={'search'}
           type="text"
-          placeholder="Buesca en nuestra tienda"
+          placeholder="Busca en nuestra tienda"
           value={flowerFilter}
           onChange={e => setflowerFilter(e.target.value)}
           className="search-input"
@@ -28,6 +28,7 @@ export const Home: FC<Props> = ({ filteredFlowers, flowerFilter, setflowerFilter
           return (
             <FlowerCard
               key={flower.id}
+              id={flower.id}
               binomialName={flower.binomialName}
               image={flower.imgUrl}
               name={flower.name}
