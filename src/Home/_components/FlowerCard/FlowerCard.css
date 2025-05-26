@@ -52,3 +52,9 @@
 .image-wrapper {
   position: relative;
 }
+
+.link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
