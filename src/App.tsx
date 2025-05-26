@@ -1,8 +1,8 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import { Header } from './Header/Header'
-import { Home } from './Home'
-import { FlowerDetails } from './FlowerDetails'
+import { Header } from './ui/Header/Header'
+import { Home } from './ui/Home'
+import { FlowerDetails } from './ui/FlowerDetails'
 
 function App() {
   return (

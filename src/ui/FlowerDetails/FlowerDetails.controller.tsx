@@ -18,13 +18,21 @@ export const FlowerDetailsController = () => {
     fetchFlowers()
   }, [])
 
+  if (!flowerDetails) {
+    return (
+      <div className="loader-container">
+        <div className="spinner" />
+      </div>
+    )
+  }
+
   return (
     <FlowerDetails
-      fertilizerType={flowerDetails?.fertilizerType}
-      name={flowerDetails?.name}
-      price={flowerDetails?.price}
-      wateringsPerWeek={flowerDetails?.wateringsPerWeek}
-      image={flowerDetails?.imgUrl}
+      fertilizerType={flowerDetails.fertilizerType}
+      name={flowerDetails.name}
+      price={flowerDetails.price}
+      wateringsPerWeek={flowerDetails.wateringsPerWeek}
+      image={flowerDetails.imgUrl}
     />
   )
 }

@@ -7,7 +7,7 @@ import { aFlower } from 'core/Flowers/infrastructure/__builders__/FlowersBuilder
 import { HomeController } from '../Home.controller'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
-import { MemoryRouter, Route, Routes } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import { FlowerDetails } from '../../FlowerDetails'
 
 describe('Home component', () => {
