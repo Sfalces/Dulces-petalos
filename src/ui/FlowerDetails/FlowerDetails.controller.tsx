@@ -2,20 +2,35 @@ import { useParams } from 'react-router-dom'
 import { FlowerDetails } from './FlowerDetails'
 import { useEffect, useState } from 'react'
 import { useInject } from '_di/container'
-import { Flower } from 'core/Flowers/domain/Flower'
+import { FlowerDetails as FlowerData } from 'core/Flowers/domain/FlowerDetails'
 
 export const FlowerDetailsController = () => {
   const { id } = useParams<{ id: string }>()
   const getFlowerDetails = useInject('getFlowerDetails')
 
-  const [flowerDetails, setflowerDetails] = useState<Flower | undefined>()
+  const [flowerDetails, setflowerDetails] = useState<FlowerData | undefined>()
+  const [isSmallScreen, setisSmallScreen] = useState(false)
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px)')
+    setisSmallScreen(mediaQuery.matches)
+
+    const handleMediaQueryChange = (event: MediaQueryListEvent) => {
+      setisSmallScreen(event.matches)
+    }
+
+    mediaQuery.addEventListener('change', handleMediaQueryChange)
+
     const fetchFlowers = async () => {
       const flowers = await getFlowerDetails(id!)
       setflowerDetails(flowers || [])
     }
+
     fetchFlowers()
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaQueryChange)
+    }
   }, [])
 
   if (!flowerDetails) {
@@ -33,6 +48,8 @@ export const FlowerDetailsController = () => {
       price={flowerDetails.price}
       wateringsPerWeek={flowerDetails.wateringsPerWeek}
       image={flowerDetails.imgUrl}
+      binomialName={flowerDetails.binomialName}
+      isSmallScreen={isSmallScreen}
     />
   )
 }
